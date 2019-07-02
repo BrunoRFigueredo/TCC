@@ -1,0 +1,58 @@
+
+  <h1>Histórico de orçamentos enviados</h1>
+<table class="table table-light" >
+
+   
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Id do Dado</th>
+            <th scope="col">Valor da tatuagem</th>
+            <th scope="col">Data para tatuar</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Nome do Cliente</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let orc of orcs">
+                   <!-- Modal -->
+                   <div   class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                    <img [src]="'data:image/jpg;base64,'+orc.dado.imagem.data" width="100%" height="250px" *ngIf="orc.dado.imagem" id="imagem" />
+                            </div>
+                            <div class="modal-footer">
+                                
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      <!--Modal-->
+                    <th scope="row">{{ orc.id }}</th>
+                    <td>{{ orc.dado.id }}</td>
+                    <td>{{ orc.valorTatuagem }} R$</td>
+                    <td>{{ orc.dataTat | mask: '00/00/0000' }}</td>
+                    <td>{{ orc.descricao }}</td>
+                    <td>{{ orc.cliente.name }}</td>
+                   <td><a type="button" class="btn btn-primary" data-target="#modalExemplo" data-toggle="modal" >Imagem</a></td>
+                 
+                </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+    </tbody>
+</table>

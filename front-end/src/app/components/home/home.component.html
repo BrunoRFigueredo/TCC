@@ -1,0 +1,143 @@
+
+<div class="row text-center pt-2">
+
+    <div class="col-md-3" id="col">
+        <span class="fa-stack fa-4x">
+            <i class="fa fa-square fa-stack-2x text-success"></i>
+            <i class="fa fa-clipboard-list fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">Tatuador</h4>
+        <p class="text">Receba diversos dados de tatuagens e envie orçamentos para inúmeros clientes .</p>
+    </div>
+    <div class="col-md-3" id="col">
+        <span class="fa-stack fa-4x">
+            <i class="fa fa-square fa-stack-2x text-success"></i>
+            <i class="fas fa-address-card fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">Cadastre-se como tatuador ou usuário </h4>
+        <p class="text">Cadastre-se como tatuador ou usuário para começar a ter acesso ao sistema.</p>
+   
+  <!-- Modal -->
+ <!-- Botão para acionar modal -->
+
+    </div>
+ 
+    <div class="col-md-3" id="col">
+      <span class="fa-stack fa-4x">
+          <i class="fa fa-square fa-stack-2x text-success"></i>
+          <i class="fa fa-table fa-stack-1x fa-inverse"></i>
+      </span>
+      <h4 class="service-heading">Usuário</h4>
+      <p class="text">Analise as galerias de cada tatuador para ver seus trabalhos e envie dados de sua tatuagem favorita para varios tatuadores diferentes.</p>
+  </div>
+  
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dados</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" >
+                <form [formGroup]="editForm" *ngIf="user">
+                        <div class="form-row" >
+                          <div class="form-group col-md-6" >
+                            <label for="inputEmail4">Lugar para tatuar:</label>
+                            <input type="text" formControlName="lugarTat" class="form-control" id="inputEmail4" placeholder="Lugar da tatuagem">
+                          </div>
+                          <div class="form-group col-md-6" >
+                            <label for="inputPassword4">Comprimento da tatuagem:</label>
+                            <input type="text" formControlName="comprimentoTat" class="form-control" id="inputPassword4" placeholder="Comprimento da tatuagem">
+                          </div>
+                        </div>
+                        <div class="form-group" >
+                          <label for="inputAddress">Comprimento do Lugar</label>
+                          <input type="text" formControlName="comprimentoLugar" class="form-control" id="inputAddress" placeholder="Comprimento do Lugar">
+                        </div>
+                        <div class="form-group" >
+                          <label for="inputAddress2">Data disponivel para tatuar:</label>
+                          <input type="text" class="form-control" formControlName="dataTat" mask="00/00/0000"  placeholder="Data da tatuagem">
+                        </div>
+                        <div class="form-group" >
+                          <label for="inputAddress2">Descrição:</label>
+                          <textarea type="text" class="form-control" formControlName="descricao" id="inputAddress2" placeholder="Descrição"></textarea>
+                        </div>
+                        Escolha uma imagem:<input type="file" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChange($event)"/>
+                      </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button id="butu" type="submit" class="btn btn-primary"   (click)="OnSubmit()"  >Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Modal-->
+ <!-- Modal de exibição dos comentários -->
+ <div class="modal fade" id="modalComent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h4 class="modal-title" id="exampleModalLabel" >Comentários:</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+              <form *ngIf="coments">
+                  <h4 *ngIf="!coments.length">Não há comentários a serem exibidos</h4>
+                      <div class="form-group" *ngFor="let coment of coments" >
+                          <div class="container">
+                              <div class="row" >
+                                <div class="col-sm-12 col-md-2">
+                                  <img src="" class="img-responsive">
+                                </div>
+                                <div class="col-sm-12">
+                                  <h5>{{ coment.cliente.name }}</h5>
+                                  <h5>{{ coment.dataComent }}</h5>
+                                  <span>{{ coment.descricao }}</span>
+                              
+                                </div>
+                              </div>
+                           
+                            </div>
+                      </div>
+                    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<h1>Tatuadores:</h1>
+
+<!--Modal de exibição dos comentários-->
+    <div class="col-md-4" *ngFor="let all of users">
+      
+    <div class="card" style="width: 18rem; height: 28rem; margin-bottom: 30px; margin-left: 40px;">
+        
+                    <img [src]="'data:image/jpg;base64,'+all.imagem.data" width="100%" height="140px" *ngIf="all.imagem" id="imagem" />
+            <div class="card-body">
+              <h5 class="card-title">{{ all.name }}</h5><br>
+              <span class="card-text">Nome do Estúdio: {{ all.tatuador.nomeEstudio }}</span><br>
+              <span class="card-text">Nome Social: {{ all.tatuador.nomeSocial }}</span><br>
+              <span class="card-text">Telefone: {{ all.cliente.telefone }}</span><br>
+              <span class="card-text">Endereço: {{ all.cliente.endereco.bairro }},{{ all.cliente.endereco.cidade }},{{ all.cliente.endereco.unidadeFederativa }}</span><br>
+              <button type="submit" id="a" class="btn btn-success" [routerLink]="['/get/',all.id]">Visitar</button>
+              <button type="button" id="b" class="btn btn-success" *ngIf="user"  (click)="showModal(all.tatuador.id)"  data-target="#modalExemplo" data-toggle="modal" >Orçar</button>
+              <button  type="button" id="c" class="btn btn-success" (click)="showComents(all.tatuador.id)" data-target="#modalComent" data-toggle="modal"  >Ver comentários</button >
+            </div>
+          </div>
+    </div>
+    
+   
+</div>
+

@@ -1,0 +1,116 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container emp-profile">
+            <form>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img" >
+                            <img [src]="'data:image/jpg;base64,'+users.imagem.data" *ngIf="users.imagem" />  
+                            <div class="file btn btn-lg btn-primary">
+                                Alterar Foto
+                                <input type="file" name="file" accept="image/*" (change)="inputFileChange($event)"/>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                       {{ users.name }}
+                                    </h5>
+                                    <h6>
+                                       {{ users.tatuador.nomeSocial}}
+                                    </h6>
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="profile-edit-btn" routerLink="/edit" routerLinkActive="active" name="btnAddMore" value="Editar perfil"/>
+                    </div>
+                </div>
+                <div class="row">
+                
+                    <div class="col-md-8">
+                        <div *ngIf="users" class="tab-content profile-tab" id="myTabContent">
+                            <div  class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6" >
+                                                <label *ngIf="users.tatuador">Nome do Estúdio:</label>
+                                            </div>
+                                            <div class="col-md-6"  *ngIf="users.tatuador">
+                                                <p>{{ users.tatuador.nomeEstudio }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label *ngIf="users.tatuador">Endereço do Estúdio</label>
+                                            </div>
+                                            <div class="col-md-6" *ngIf="users.tatuador">
+                                                <p>{{ users.tatuador.endereco.unidadeFederativa }}, {{ users.tatuador.endereco.cidade }}, {{ users.tatuador.endereco.bairro }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Endereço</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ users.cliente.endereco.unidadeFederativa }}, {{ users.cliente.endereco.cidade }}, {{ users.cliente.endereco.bairro }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ users.email }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Telefone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ users.cliente.telefone | mask: '(00) 00000-0000' }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>CPF</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ users.cliente.cpf | mask: '000.000.000.00' }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6" *ngIf="users.tatuador">
+                                                <label>Especialidade</label>
+                                            </div>
+                                            <div *ngIf="users.tatuador" class="col-md-6">
+                                                <p>{{ users.tatuador.descricao }}</p>
+                                            </div>
+                                        </div>
+                                        
+                                       
+                                        <label  *ngIf="users.tatuador" id="labeu"> Escolha imagens para a sua galeria: </label>
+                                        <input  *ngIf="users.tatuador" id="inputi" type="file" name="file" accept="image/*" (change)="InputAnyFiles($event)"/>
+                                  
+                                        <hr class="mt-2 mb-5">
+                                        <div class="row text-center text-lg-left" *ngIf="users.tatuador">
+                                            
+                                        <div class="col-lg-3 col-md-4 col-6"  *ngFor="let imagemm of users.tatuador.imagem">
+                                            <a href="#" class="d-block mb-4 h-100">
+                                                  <img class="img-fluid img-thumbnail" alt="picture" [src]="'data:image/jpg;base64,'+imagemm.data" *ngIf="users.tatuador.imagem" alt="">
+                                                
+                                                </a>
+                                          </div>
+                                        </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>

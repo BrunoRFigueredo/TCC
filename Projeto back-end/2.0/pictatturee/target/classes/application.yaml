@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pictatture
+    username: postgres
+    password: bruno
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      use-new-id-generator-mappings: false
+      ddl-auto: update
+      database: POSTGRESQL
+
+server:
+  servlet:
+    context-path: /api

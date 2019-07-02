@@ -1,0 +1,60 @@
+
+  <h1>Histórico de orçamentos recebidos</h1>
+<table class="table table-light" >
+
+   
+    <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Id do Dado</th>
+          <th scope="col">Valor da tatuagem</th>
+          <th scope="col">Data para tatuar</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Nome do Estúdio</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let dado of dados">
+                   <!-- Modal -->
+              
+    
+      <!--Modal-->
+      <th scope="row">{{ dado.id }}</th>
+      <td>{{ dado.dado.id }}</td>
+      <td>{{ dado.valorTatuagem }} R$</td>
+      <td>{{ dado.dataTat | mask: '00/00/0000' }}</td>
+      <td>{{ dado.descricao }}</td>
+      <td>{{ dado.tatuador.nomeEstudio }}</td>
+      <div   class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" >
+                    <img [src]="'data:image/jpg;base64,'+dado.dado.imagem.data" width="100%" height="250px" *ngIf="dado.dado.imagem" id="imagem" />
+            </div>
+            <div class="modal-footer">
+                
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+                   <td><a type="button" class="btn btn-primary" data-target="#modalExemplo" data-toggle="modal" >Imagem</a></td>
+                 
+                </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+    </tbody>
+</table>

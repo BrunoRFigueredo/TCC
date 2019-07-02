@@ -1,0 +1,105 @@
+
+  <h1>Dados a serem respondidos</h1>
+
+<table class="table table-light" >
+  <div  *ngFor="let dado of dados"  class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                <img [src]="'data:image/jpg;base64,'+dado.imagem.data" width="100%" height="250px" *ngIf="dado.imagem" id="imagem" />
+        </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        
+
+        </div>
+      </div>
+    </div>
+  </div>
+   
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Lugar do corpo</th>
+            <th scope="col">Comprimento da tatuagem (CM)</th>
+            <th scope="col">Comprimento do local (CM)</th>
+            <th scope="col">Data da tatuagem</th>
+            <th scope="col">Nome do Cliente</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Status</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let dado of dados">
+                   <!-- Modal -->
+                
+    
+      <!--Modal-->
+             <!-- Modal -->
+             <div   class="modal fade" id="modalOrc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="editForm" >
+                      <div class="form-row" >
+                        <div class="form-group col-md-6" >
+                          <label for="inputEmail4">Valor da tatuagem:</label>
+                          <input type="text" formControlName="valorTatuagem" mask="00000.00R$" class="form-control" id="inputEmail4" placeholder="Lugar da tatuagem">
+                        </div>
+                      <div class="form-group" >
+                        <label for="inputAddress2">Data para tatuar:</label>
+                        <input type="text" class="form-control" formControlName="dataTat" mask="00/00/0000" id="data" placeholder="Data da tatuagem">
+                      </div>
+                      <div class="form-group" >
+                        <label for="inputAddress2">Descrição:</label>
+                        <textarea cols="51" rows="4" type="text" class="form-control" formControlName="descricao" id="inputAddress2" placeholder="Descrição"></textarea>
+                      </div>
+                    </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="OnSubmit()">Salvar mudanças</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<!--Modal-->
+
+                    <th scope="row">{{ dado.id }}</th>
+                    <td>{{ dado.lugarTat }}</td>
+                    <td>{{ dado.comprimentoTat }}</td>
+                    <td>{{ dado.comprimentoLugar }}</td>
+                    <td>{{ dado.dataTat | mask: '00/00/0000' }}</td>
+                    <td>{{ dado.cliente.name }}</td>
+                   <td><a type="button" class="btn btn-primary" data-target="#modalExemplo" data-toggle="modal" >Imagem</a></td>
+                   <td><a type="button" class="btn btn-primary" (click)="showModal(dado.cliente.id,dado.id)" *ngIf="!dado.enabled"  data-target="#modalOrc" data-toggle="modal" >Responder</a></td>
+                   <td *ngIf="!dado.enabled">Não efetuada</td>
+                   <td *ngIf="dado.enabled">Efetuada</td>
+                </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,23 @@
+.error{
+  color: #FF0000;
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  background-color: gray;
+  margin: 2em auto auto;
+}
+
+form{
+
+  margin-top: 20px;
+
+  text-align: center;
+
+}
+
+button{
+
+  margin-bottom: 20px; 
+
+}

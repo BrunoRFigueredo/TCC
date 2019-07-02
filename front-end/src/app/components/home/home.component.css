@@ -1,0 +1,119 @@
+
+.text-center{
+    margin-left: 12%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+h4{
+
+    color: white;
+
+}
+
+/* Latest compiled and minified CSS included as External Resource*/
+
+/* Optional theme */
+@import url('//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css');
+
+body {
+    margin: 10px 10px 0 10px;
+    background: #efe;
+    color: red;
+}
+.col-sm-12{
+
+    margin-bottom: 30px;
+
+}
+h4{
+
+    color: black;
+
+}
+#a{
+
+    margin-right: 6px;
+    margin-top: 6px;
+}
+h1{
+    position: absolute;
+    display: flex;
+    width: 80%;
+    right: 100px;
+    justify-content: center;
+    color: black;
+    margin-top: 270px; 
+    margin-bottom: 30px;
+    font-size: 50px;
+    
+  
+  }
+#b{
+
+    margin-top: 6px;  
+}
+#c{
+
+    margin-top: 6px;
+
+}
+img{
+
+    border-radius: 10px;
+
+}
+#col{
+
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 90px;
+    margin-left: -29px;
+}
+.text{
+
+    color: black;
+
+}
+.card{
+
+    border-radius: 10px;
+   
+
+}
+.container {
+  background: #666;
+  border-radius: 5px;
+  overflow: none;
+  border: red solid 1px;
+  padding: 10px 10px 0 10px;
+}
+.comment-footer-container {
+  padding: 0 5px;
+}
+.comment-footer {
+  background: green;
+  margin: 0;
+}
+.comment-footer p {
+  margin-bottom: 0;
+  padding: 5px;
+}
+.modal-title{
+
+
+    color:black;
+
+}
+.fade.in {
+    opacity: 1;
+  }
+  .modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  .modal-backdrop.in {
+    opacity: 0.5;
+  }

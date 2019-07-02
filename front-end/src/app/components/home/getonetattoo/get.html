@@ -1,0 +1,133 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img [src]="'data:image/jpg;base64,'+users.imagem.data" *ngIf="users.imagem" />  
+                         
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                       {{ users.name }}
+                                    </h5>
+                                    <h6>
+                                       {{ users.tatuador.nomeSocial}}
+                                    </h6>
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                      <input type="submit" class="profile-edit-btn" *ngIf="user"  (click)="showModal(users.tatuador.id)"  data-target="#modalExemplo" data-toggle="modal" name="btnAddMore" value="Fazer comentário"/>
+                  </div>
+                 
+                </div>
+                <div class="row">
+                
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Nome do Estúdio:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ users.tatuador.nomeEstudio }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Endereço do Estúdio</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ users.tatuador.endereco.unidadeFederativa }}, {{ users.tatuador.endereco.cidade }}, {{ users.tatuador.endereco.bairro }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Endereço do Tatuador</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ users.cliente.endereco.unidadeFederativa }}, {{ users.cliente.endereco.cidade }}, {{ users.cliente.endereco.bairro }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ users.email }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Telefone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ users.cliente.telefone | mask: '(00) 00000-0000' }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>CPF</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ users.cliente.cpf | mask: '000.000.000.00' }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Especialidade</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ users.tatuador.descricao }}</p>
+                                            </div>
+                                        </div>
+                                                                         <!-- Modal -->
+  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" >
+                <form [formGroup]="editForm" *ngIf="user" >
+                        <div class="form-group" >
+                          <label for="inputAddress2">Comentário:</label>
+                          <textarea type="text" class="form-control" formControlName="descricao" id="inputAddress2" placeholder="Descrição"></textarea>
+                        </div>
+                      </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal"  (click)="OnSubmit()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+                                        <hr class="mt-2 mb-5">
+                                        <div class="row text-center text-lg-left">
+                                            
+                                        <div class="col-lg-3 col-md-4 col-6" *ngFor="let imagemm of users.tatuador.imagem">
+                                            <a href="#" class="d-block mb-4 h-100">
+                                                  <img class="img-fluid img-thumbnail" alt="picture" [src]="'data:image/jpg;base64,'+imagemm.data" *ngIf="users.tatuador.imagem" alt="">
+                                                
+                                                </a>
+                                          </div>
+                                        </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>

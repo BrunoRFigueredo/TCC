@@ -1,0 +1,109 @@
+
+    <div class="container">
+      <div class="card card-register mx-auto mt-2">
+        <div class="card-header">Cadastrar uma conta</div>
+        <div class="card-body">
+          <form (ngSubmit)="salvar()">
+            <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="nome" [(ngModel)]="user.name"  class="form-control" placeholder="Nome" required="required" autofocus="autofocus">
+                  </div>
+               
+            </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="email" name="email" [(ngModel)]="user.email" class="form-control" placeholder="Email" required="required">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="password" name="senha" [(ngModel)]="user.password" class="form-control" placeholder="Senha" required="required">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="password" name="senha" [(ngModel)]="user.matchPassword" class="form-control" placeholder="Confirmação da senha" required="required">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="text" name="cpf" mask="000.000.000-00" [(ngModel)]="user.cliente.cpf" class="form-control" placeholder="CPF" required="required">
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="form-group">
+              <div class="form-row">
+              
+
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="text" name="telefone"  mask="(00) 00000-0000"  [(ngModel)]="user.cliente.telefone" class="form-control" placeholder="Telefone" required="required">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                           <select  class="form-control"  name="unidadefederativa" [(ngModel)]="user.cliente.endereco.unidadeFederativa" placeholder="Selecione a cidade">
+                              <option selected disabled>Selecione o Estado</option>
+                              <option >AC</option>
+                              <option >AL</option>
+                              <option >AP</option>
+                              <option >AM</option>
+                              <option >BA</option>
+                              <option >CE</option>
+                              <option >DF</option>
+                              <option >ES</option>
+                              <option >GO</option>
+                              <option >MA</option>
+                              <option >MT</option>
+                              <option >MS</option>
+                              <option >MG</option>
+                              <option >PA</option>
+                              <option >PB</option>
+                              <option >PR</option>
+                              <option >PE</option>
+                              <option >PI</option>
+                              <option >RJ</option>
+                              <option >RN</option>
+                              <option >RS</option>
+                              <option >RO</option>
+                              <option >RR</option>
+                              <option >SC</option>
+                              <option >SP</option>
+                              <option >SE</option>
+                              <option >TO</option>
+                        </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="form-row">
+                 <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="Cidade" name="cidade" [(ngModel)]="user.cliente.endereco.cidade" class="form-control" placeholder="Cidade" required="required">
+                  </div>
+                 </div>
+                 <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="Bairro" name="bairro" [(ngModel)]="user.cliente.endereco.bairro" class="form-control" placeholder="Bairro" required="required">
+                  </div>
+                </div>
+               </div>
+            </div>
+
+            
+
+            <button class="btn btn-success btn-block" type="submit" href="/consultarcliente">Registrar</button>
+          </form>
+          <div class="text-center">
+            <a class="d-block small mt-3" href="/login">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>

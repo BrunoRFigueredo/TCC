@@ -1,0 +1,58 @@
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+        <a class="navbar-brand mr-1" routerLink="/home" routerLinkActive="active">PicTatture</a>
+  
+        
+  
+        <!-- Navbar Search -->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+          <div class="input-group" *ngIf="user">
+            <a class="btn btn-primary" type="button" routerLink="/soutat" routerLinkActive="active" *ngIf="!user.tatuador" >Sou tatuador</a>
+            <a   routerLink="/profile"  routerLinkActive="active"><i class="far fa-id-badge"></i></a>
+            <button class="butu" (click)="deslogar()" ><i class="fas fa-sign-out-alt"></i></button>
+          </div>
+         
+        </form>
+      
+      </nav>
+  
+
+      <ul class="sidebar navbar-nav" id="barralateral">
+        <li class="nav-item active">
+          <button type="button" id="buton"  class="btn btn-dark" routerLink="/home" routerLinkActive="active">
+            <i class="fas fa-home"></i><br>
+            <span>Início</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button type="button" id="buton" class="btn btn-dark" routerLink="/registrou"  routerLinkActive="active" *ngIf="!user">
+            <i class="fas fa-address-card"></i><br>
+            <span>Cadastro</span></button>
+        </li>
+        <li class="nav-item">
+          <button type="button" id="buton"class="btn btn-dark" routerLink="/login" routerLinkActive="active" *ngIf="!user">
+            <i class="fas fa-user-circle fa-fw"></i><br>
+            <span>Login</span></button>
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <button type="button" id="buton" class="btn btn-dark" routerLink="/tabelaot" routerLinkActive="active" *ngIf="user.tatuador" >
+            <i class="fas fa-clipboard-list"></i><br>
+            <span>Orçamentos</span></button>
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <button type="button" id="buton" class="btn btn-dark"routerLink="/tabeladt" routerLinkActive="active" *ngIf="user.tatuador">
+            <i class="fas fa-clipboard-list"></i><br>
+            <span>Dados</span></button>
+        </li>
+        <li class="nav-item">
+          <button type="button" id="buton" class="btn btn-dark" routerLink="/tabeladc" routerLinkActive="active" *ngIf="user" >
+            <i class="fas fa-clipboard-list"></i><br>
+            <span>Histórico <br> de <br> dados</span></button>
+        </li>
+        <li class="nav-item">
+          <button type="button" id="buton" class="btn btn-dark" routerLink="/tabelaoc" routerLinkActive="active" *ngIf="user" >
+            <i class="fas fa-clipboard-list"></i><br>
+            <span>Histórico <br> de <br> orçamentos</span></button>
+        </li>
+      </ul>

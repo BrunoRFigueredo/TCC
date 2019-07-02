@@ -1,0 +1,205 @@
+
+    <div class="container">
+        <div class="card card-register mx-auto mt-2">
+          <div class="card-body">
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()" >
+              <div class="form-group">
+
+                <div class="form-label-group"  formGroupName="imagem">
+                  <input type="hidden"  formControlName="data"  class="form-control" placeholder="Nome" required="required" autofocus="autofocus">
+                  <input type="hidden"  formControlName="fileName"  class="form-control" placeholder="Nome" required="required" autofocus="autofocus">
+                  <input type="hidden"  formControlName="fileType"  class="form-control" placeholder="Nome" required="required" autofocus="autofocus">
+              
+                </div>
+             
+                
+                <div class="form-label-group" >
+                      <input type="hidden"   formControlName="name"  class="form-control" placeholder="Nome" required="required" autofocus="autofocus">
+                    </div>
+                 
+              </div>
+              <div class="form-group">
+                <div class="form-label-group">
+                  <input type="hidden"  formControlName="email"  class="form-control" placeholder="Email" required="required">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-label-group" formGroupName="cliente" >
+                  <input type="hidden"  name="cpf" class="form-control" formControlName="cpf" placeholder="CPF" required="required">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <div class="form-label-group">
+                      <input type="hidden" name="senha" formControlName="password" class="form-control" placeholder="Senha" required="required">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-label-group">
+                      <input type="hidden" name="matchPassword" formControlName="matchPassword" class="form-control" placeholder="Senha" required="required">
+                    </div>
+                  </div>
+                  
+              </div>
+              
+            </div>
+              <div class="form-group">
+                <div class="form-row">
+                
+  
+                  <div class="col-md-6">
+                    <div class="form-label-group" formGroupName="cliente">
+                      <input type="hidden"  name="telefone" formControlName="telefone"  class="form-control" placeholder="Telefone" required="required">
+                    </div>
+                  </div>
+                  <div  class="col-md-6" formGroupName="cliente">
+                    <div id="meuselect" class="form-label-group" formGroupName="endereco">
+                             <select  class="form-control"  name="unidadefederativa" formControlName="unidadeFederativa" placeholder="Selecione a cidade">
+                                <option selected disabled>Selecione o Estado</option>
+                                <option >AC</option>
+                                <option >AL</option>
+                                <option >AP</option>
+                                <option >AM</option>
+                                <option >BA</option>
+                                <option >CE</option>
+                                <option >DF</option>
+                                <option >ES</option>
+                                <option >GO</option>
+                                <option >MA</option>
+                                <option >MT</option>
+                                <option >MS</option>
+                                <option >MG</option>
+                                <option >PA</option>
+                                <option >PB</option>
+                                <option >PR</option>
+                                <option >PE</option>
+                                <option >PI</option>
+                                <option >RJ</option>
+                                <option >RN</option>
+                                <option >RS</option>
+                                <option >RO</option>
+                                <option >RR</option>
+                                <option >SC</option>
+                                <option >SP</option>
+                                <option >SE</option>
+                                <option >TO</option>
+                          </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+              <div class="form-group" >
+                <div class="form-row" >
+                   <div class="col-md-6" formGroupName="cliente">
+                    <div class="form-label-group" formGroupName="endereco">
+                      <input type="hidden"  name="cidade"class="form-control" formControlName="cidade" placeholder="Cidade" required="required">
+                    </div>
+                   </div>
+                   <div class="col-md-6" formGroupName="cliente" >
+                    <div class="form-label-group" formGroupName="endereco">
+                      <input  type="hidden"  name="bairro" class="form-control" formControlName="bairro" placeholder="Bairro" required="required">
+                    </div>
+                  </div>
+                 </div>
+              </div>
+   
+
+              <div class="form-group">
+                <h3>Dados do tatuador:</h3>
+                <div class="form-row" >
+                   <div class="col-md-6" >
+                    <div class="form-label-group" formGroupName="tatuador" >
+                      <input type="text" name="nomesocial"class="form-control" formControlName="nomeSocial" placeholder="Nome Social(Apelido)" required="required">
+                    </div>
+                   </div>
+                   <div class="col-md-6" >
+                    <div class="form-label-group" formGroupName="tatuador" >
+                      <input type="text" name="nomeestudio" class="form-control" formControlName="nomeEstudio" placeholder="Nome do Estúdio" required="required">
+                    </div>
+                  </div>
+                 </div>
+              </div>
+
+              <div class="form-group">
+                <div class="form-row" >
+                   <div class="col-md-12" >
+                    <div class="form-label-group" formGroupName="tatuador" >
+                      <textarea rows="5"  type="text" formControlName="descricao" name="descricao"class="form-control" placeholder="Insira os estilos de tatuagem que você faz(Old School,New School,boldline,tribal....)" required="required"></textarea>
+                    </div>
+                   </div>
+                 </div>
+              </div>
+
+
+              
+
+              <div class="form-group" >
+                <h3>Endereço do Estúdio</h3>
+                <div class="form-row" >
+                   <div class="col-md-6" formGroupName="tatuador" >
+                    <div class="form-label-group" formGroupName="endereco" >
+                      <input type="text" name="nomesocial"class="form-control" formControlName="cidade" placeholder="Cidade do Estúdio" required="required">
+                    </div>
+                   </div>
+                   <div class="col-md-6" formGroupName="tatuador" >
+                    <div class="form-label-group" formGroupName="endereco" >
+                      <input type="text" name="nomeestudio" class="form-control" formControlName="bairro" placeholder="Bairro do Estúdio" required="required">
+                    </div>
+                  </div>
+                 </div>
+              </div>
+
+             
+              
+              
+
+              <div class="col-md-6" formGroupName="tatuador">
+                <div class="form-label-group" formGroupName="endereco">
+                         <select id="meuselequiti" class="form-control"  name="unidadefederativa" formControlName="unidadeFederativa" placeholder="Selecione a cidade">
+                            <option selected disabled>Selecione o Estado</option>
+                            <option >AC</option>
+                            <option >AL</option>
+                            <option >AP</option>
+                            <option >AM</option>
+                            <option >BA</option>
+                            <option >CE</option>
+                            <option >DF</option>
+                            <option >ES</option>
+                            <option >GO</option>
+                            <option >MA</option>
+                            <option >MT</option>
+                            <option >MS</option>
+                            <option >MG</option>
+                            <option >PA</option>
+                            <option >PB</option>
+                            <option >PR</option>
+                            <option >PE</option>
+                            <option >PI</option>
+                            <option >RJ</option>
+                            <option >RN</option>
+                            <option >RS</option>
+                            <option >RO</option>
+                            <option >RR</option>
+                            <option >SC</option>
+                            <option >SP</option>
+                            <option >SE</option>
+                            <option >TO</option>
+                      </select>
+                </div>
+              </div>
+
+
+
+
+  
+              
+  
+              <button class="btn btn-success btn-block" type="submit" href="/profile">Editar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  

@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+
+    background-image: url('tatoo.jpg');
+    background-repeat: no-repeat; 
+    height: 100%;
+}
+html::before{
+    
+    content:'';
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:rgba(0, 0, 0, 0.4);
+    height: 165%;
+    
+    
+}
+html{
+}
+
